@@ -31,8 +31,15 @@ My personal Generative AI resources.
 - [ ] [Websérie: ChatGPT e IAs Generativas](https://www.youtube.com/playlist?list=PLh2Y_pKOa4Ud316ih975nbh3YbF5R4uZP)
 
 ### Deep Learning AI
+
+- [Deep Learning Short Courses](https://www.deeplearning.ai/short-courses/)
+
 - [x] [Building Systems with the ChatGPT API](https://learn.deeplearning.ai/chatgpt-building-system/lesson/1/introduction)
 - [x] [ChatGPT Prompt Engineering for Developers](https://learn.deeplearning.ai/chatgpt-prompt-eng/lesson/1/introduction)
+
+## Services
+- [ ] [LangChain](https://python.langchain.com/docs/get_started/introduction)
+- [ ] [Azure OpenAI](https://learn.microsoft.com/pt-br/azure/?product=popular)
 
 ## Projects
 
