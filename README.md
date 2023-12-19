@@ -44,4 +44,4 @@ My personal Generative AI resources.
 
 ## Projects
 
-- [x] [Product Recommendation Email Generator](https://github.com/helioLJ/gpt-and-python/blob/main/product_recommendation_email_generator.py)
+- [x] [Product Recommendation Email Generator](https://github.com/helioLJ/gpt-and-python/blob/main/creating-tools/product_recommendation_email_generator.py)
