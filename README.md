@@ -36,6 +36,7 @@ My personal Generative AI resources.
 
 - [x] [Building Systems with the ChatGPT API](https://learn.deeplearning.ai/chatgpt-building-system/lesson/1/introduction)
 - [x] [ChatGPT Prompt Engineering for Developers](https://learn.deeplearning.ai/chatgpt-prompt-eng/lesson/1/introduction)
+- [ ] [LangChain for LLM Application Development](https://learn.deeplearning.ai/langchain/)
 
 ## Services
 - [ ] [LangChain](https://python.langchain.com/docs/get_started/introduction)
