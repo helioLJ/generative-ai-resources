@@ -6,7 +6,7 @@ import os
 client = OpenAI()
 
 def audio_to_text():
-    audio_file= open("audio/lexi.mp3", "rb")
+    audio_file= open("audio/videoplayback.mp3", "rb")
     transcript = client.audio.transcriptions.create(
     model="whisper-1", 
     file=audio_file,

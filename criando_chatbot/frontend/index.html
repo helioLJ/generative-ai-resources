@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatGPT Chat Demo</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #chat-container {
+            width: 75%;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        #chat-history {
+            padding: 10px;
+            height: 600px;
+            max-height: 100vh;
+            overflow-y: auto;
+            background-color: #fff;
+        }
+
+        .user, .assistant {
+            margin-bottom: 10px;
+            padding: 8px;
+            border-radius: 4px;
+        }
+
+        .user {
+            background-color: #4285f4;
+            color: #fff;
+            align-self: flex-end;
+        }
+
+        .assistant {
+            background-color: #f5f5f5;
+            color: #333;
+            align-self: flex-start;
+        }
+
+        #user-input {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-top: 1px solid #ddd;
+        }
+
+        #user-message {
+            flex-grow: 1;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        #send-button {
+            padding: 8px 16px;
+            background-color: #4285f4;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="chat-container">
+        <div id="chat-history"></div>
+        <div id="user-input">
+            <input type="text" id="user-message" placeholder="Type your message...">
+            <button id="send-button" onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+<script>
+    const chatHistory = document.getElementById('chat-history');
+    const userMessageInput = document.getElementById('user-message');
+
+    async function sendMessage() {
+        const userMessage = userMessageInput.value;
+        if (userMessage.trim() === '') return;
+
+        // Add user's message to the chat history
+        appendMessage('user', userMessage);
+
+        // Clear the input field
+        userMessageInput.value = '';
+
+        // Send the user's message to the server for streaming responses
+        const response = await fetch('http://127.0.0.1:5000/stream_chat_completion', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ user_input: userMessage }),
+        })
+        
+        const decodificador = new TextDecoder();
+        const leitorDaResposta = response.body.getReader();
+        let respostaParcial = "";
+        let newMessage = appendMessage('Bot', respostaParcial)
+        while (true) {
+            const { done: terminou, value: pedacoDaResposta } = await leitorDaResposta.read();
+            if (terminou) break;
+
+            respostaParcial = decodificador.decode(pedacoDaResposta).replace(/\n/g, '<br>');
+            console.log(respostaParcial)
+            newMessage.innerHTML = `Bot: ${respostaParcial.replace(/\n/g, '<br>')}`;
+        }
+    }
+
+    function appendMessage(role, content) {
+        const messageElement = document.createElement('div');
+        messageElement.className = role;
+        messageElement.innerHTML = `${role.charAt(0).toUpperCase() + role.slice(1)}: ${content.replace(/\n/g, '<br>')}`;
+        chatHistory.appendChild(messageElement);
+        return messageElement
+    }
+</script>
+</body>
+</html>

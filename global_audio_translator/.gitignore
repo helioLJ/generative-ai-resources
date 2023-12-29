@@ -2,3 +2,4 @@
 /venv
 audio/*
 outputs/*
+*.mp3
