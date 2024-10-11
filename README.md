@@ -14,6 +14,8 @@
 - [GPT e Python: criando ferramentas com a API](https://cursos.alura.com.br/course/gpt-python-criando-ferramentas-api)
 - [OpenAI: criando uma postagem para o Instagram com IA Generativa](https://cursos.alura.com.br/course/openai-criando-postagem-instagram-ia-generativa)
 - [Python e GPT: crie seu chatbot com IA](https://cursos.alura.com.br/course/python-gpt-crie-chatbot-ia)
+- [Curso gratuito da microsoft sobre IA generativa para iniciantes](https://github.com/microsoft/generative-ai-for-beginners)
+- [Curso da Escola Nacional de Admnistração Pública sobre IA](https://www.escolavirtual.gov.br/curso/1091)
 
 ## Vídeos
 - [Websérie: ChatGPT e IAs Generativas](https://www.youtube.com/playlist?list=PLh2Y_pKOa4Ud316ih975nbh3YbF5R4uZP)
